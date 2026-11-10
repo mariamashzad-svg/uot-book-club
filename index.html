@@ -3,23 +3,17 @@
 
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#620116">
 
   <meta
     name="description"
-    content="نادي الكتاب بجامعة طرابلس، مساحة تجمع الطلبة حول القراءة والمعرفة والحوار."
+    content="نادي الكتاب بجامعة طرابلس — مساحة للقراءة والمعرفة والحوار. تعرّف علينا وانضم إلى مجتمعنا."
   >
 
-  <title>نادي الكتاب بجامعة طرابلس | روابطنا</title>
+  <title>نادي الكتاب | جامعة طرابلس</title>
 
   <!-- Google Fonts -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -28,105 +22,138 @@
     rel="stylesheet"
   >
 
-  <!-- Website Styles -->
-
   <!-- CSS -->
-<link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css">
 
   <!-- JavaScript -->
+  <script src="./script.js" defer></script>
 
-  
-<!-- JavaScript -->
-<script src="./script.js" defer></script>
 </head>
 
 <body>
 
-  <!-- Background Decorations -->
+  <!-- Decorative Background -->
+  <div class="background-decoration" aria-hidden="true"></div>
 
-  <div class="ring top" aria-hidden="true"></div>
-  <div class="ring bottom" aria-hidden="true"></div>
+  <main class="website-container">
 
-  <main class="page">
+    <!-- ==================================
+         HEADER
+    =================================== -->
 
-    <div class="divider"></div>
+    <header class="site-header">
 
-    <!-- PROFILE -->
+      <div class="header-top">
 
-    <header class="profile">
+        <span class="header-label">
+          نادي طلابي ثقافي
+        </span>
 
-      <div class="logo-box">
-        <img
-          src="assets/images/logo.png"
-          alt="شعار نادي الكتاب بجامعة طرابلس"
-          width="200"
-          height="200"
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="تفعيل الوضع الليلي"
+          aria-pressed="false"
         >
+          <span id="themeIcon">☾</span>
+        </button>
+
       </div>
 
-      <h1>نادي الكتاب بجامعة طرابلس</h1>
+      <div class="logo-container">
 
-      <p class="english" lang="en">
-        University of Tripoli Book Club
-      </p>
+        <img
+          src="./assets/logo.png"
+          alt="شعار نادي الكتاب بجامعة طرابلس"
+          class="club-logo"
+        >
 
-      <div class="tagline">
-        نحو جامعة تقرأ، تفكّر، تتحاور
+      </div>
+
+      <div class="header-content">
+
+        <span class="eyebrow">
+          UNIVERSITY OF TRIPOLI
+        </span>
+
+        <h1>
+          نادي الكتاب
+        </h1>
+
+        <p class="university-name">
+          بجامعة طرابلس
+        </p>
+
+        <div class="ornament-divider">
+          <span></span>
+          <span class="ornament">✦</span>
+          <span></span>
+        </div>
+
+        <p class="club-tagline">
+          نحو جامعة تقرأ، تفكّر، تتحاور
+        </p>
+
+        <p class="header-description">
+          مساحة طلابية تجمعنا حول الكتب،
+          وتفتح لنا آفاقًا جديدة للمعرفة والحوار.
+        </p>
+
       </div>
 
     </header>
 
 
-    <!-- WHO WE ARE -->
+    <!-- ==================================
+         COMMUNITY SECTION
+    =================================== -->
 
-    <section class="intro-card reveal" aria-labelledby="whoTitle">
+    <section class="community-section reveal" aria-labelledby="communityTitle">
 
-      <h2 id="whoTitle">من نحن؟</h2>
+      <div class="editorial-heading">
 
-      <p>
-        نادي الكتاب بجامعة طرابلس مبادرة طلابية فكرية
-        وثقافية، تتيح للطلبة فرصًا للقراءة والحوار
-        وتبادل المعرفة.
+        <span class="section-number">01</span>
 
-        نلتقي حول الكتب والقضايا والأفكار،
-        لنتعلّم من بعضنا ونبني علاقة أعمق
-        بالحياة الفكرية والثقافية.
-      </p>
+        <div>
+          <span class="section-label">مجتمعنا</span>
+          <h2 id="communityTitle">كن جزءًا من الحكاية</h2>
+        </div>
 
-      <p class="affiliation">
-        أحد الأندية التابعة لنادي جامعة طرابلس
-        الرياضي الثقافي الاجتماعي.
-      </p>
-
-    </section>
-
-
-    <!-- JOIN COMMUNITY -->
-
-    <section class="reveal" aria-labelledby="joinTitle">
+      </div>
 
       <a
-        class="join-card"
         href="https://t.me/+6G4O9-Gd8942N2Jk"
+        class="community-card"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <span class="join-label">
+        <div class="community-decoration" aria-hidden="true">
+          ✳
+        </div>
+
+        <span class="community-tag">
           مجتمع نادي الكتاب
         </span>
 
-        <h2 id="joinTitle">انضم إلينا ✦</h2>
+        <h3>انضم إلينا</h3>
 
         <p>
-          انضم إلى مجتمع يجمع محبّي القراءة
-          والثقافة والحوار، وكن جزءًا من رحلتنا
-          نحو المعرفة.
+          انضم إلى مجتمع يجمع محبّي القراءة والثقافة،
+          وشاركنا النقاشات والفعاليات والتجارب.
         </p>
 
-        <div class="join-bottom">
-          <span>الانضمام عبر تيليجرام</span>
-          <span class="arrow" aria-hidden="true">←</span>
+        <div class="community-footer">
+
+          <span>
+            الانضمام عبر تيليجرام
+          </span>
+
+          <span class="circle-arrow" aria-hidden="true">
+            ↗
+          </span>
+
         </div>
 
       </a>
@@ -134,94 +161,90 @@
     </section>
 
 
-    <!-- SOCIAL MEDIA -->
+    <!-- ==================================
+         SOCIAL MEDIA
+    =================================== -->
 
-    <section class="reveal" aria-labelledby="socialTitle">
+    <section class="social-section reveal" aria-labelledby="socialTitle">
 
-      <div class="section-heading">
-        <h2 id="socialTitle">تابعنا على منصاتنا</h2>
-        <p>كن على اطلاع بكل جديد في نادي الكتاب</p>
+      <div class="editorial-heading">
+
+        <span class="section-number">02</span>
+
+        <div>
+          <span class="section-label">روابطنا</span>
+          <h2 id="socialTitle">ابقَ على تواصل معنا</h2>
+        </div>
+
       </div>
 
       <div class="social-links">
 
-        <!-- Instagram -->
+        <!-- INSTAGRAM -->
 
         <a
-          class="social-link"
           href="https://www.instagram.com/uot.book.club/"
+          class="social-card"
           target="_blank"
           rel="noopener noreferrer"
         >
 
-          <div class="social-icon" aria-hidden="true">
-
-            <svg viewBox="0 0 24 24">
-              <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm10.5 1.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
-            </svg>
-
+          <div class="social-icon instagram-icon" aria-hidden="true">
+            ◎
           </div>
 
-          <div class="social-info">
+          <div class="social-text">
             <h3>إنستغرام</h3>
             <p>صور وفعاليات وآخر أخبار النادي</p>
           </div>
 
-          <span class="arrow" aria-hidden="true">←</span>
+          <span class="social-arrow" aria-hidden="true">↗</span>
 
         </a>
 
 
-        <!-- Facebook -->
+        <!-- FACEBOOK -->
 
         <a
-          class="social-link"
           href="https://www.facebook.com/share/1Dxv63MA9V/"
+          class="social-card"
           target="_blank"
           rel="noopener noreferrer"
         >
 
-          <div class="social-icon" aria-hidden="true">
-
-            <svg viewBox="0 0 24 24">
-              <path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.2 0-1.6.7-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/>
-            </svg>
-
+          <div class="social-icon facebook-icon" aria-hidden="true">
+            f
           </div>
 
-          <div class="social-info">
+          <div class="social-text">
             <h3>فيسبوك</h3>
-            <p>منشورات النادي وأنشطته الثقافية</p>
+            <p>منشوراتنا وأنشطتنا الثقافية</p>
           </div>
 
-          <span class="arrow" aria-hidden="true">←</span>
+          <span class="social-arrow" aria-hidden="true">↗</span>
 
         </a>
 
 
-        <!-- Telegram -->
+        <!-- TELEGRAM -->
 
         <a
-          class="social-link"
           href="https://t.me/+6G4O9-Gd8942N2Jk"
+          class="social-card"
           target="_blank"
           rel="noopener noreferrer"
         >
 
-          <div class="social-icon" aria-hidden="true">
-
-            <svg viewBox="0 0 24 24">
-              <path d="M21.5 3.5L2.7 10.8c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.9 5.9c.2.6.1.8.8.8.5 0 .8-.2 1.1-.5l2.7-2.6 5.6 4.1c1 .6 1.7.3 2-1l3.3-15.5c.4-1.3-.5-1.9-1.5-1.5zM8 13.5l10.8-6.8c.5-.3 1-.1.6.3l-9.2 8.3-.4 4.1L8 13.5z"/>
-            </svg>
-
+          <div class="social-icon telegram-icon" aria-hidden="true">
+            ➤
           </div>
 
-          <div class="social-info">
+          <div class="social-text">
             <h3>تيليجرام</h3>
-            <p>مجتمع القراءة والحوار</p>
+            <p>مجتمع القراءة والنقاش</p>
           </div>
 
-          <span class="arrow" aria-hidden="true">←</span>
+          <span class="social-arrow" aria-hidden="true">↗</span>
 
         </a>
 
@@ -230,111 +253,255 @@
     </section>
 
 
-    <!-- WHAT WE OFFER -->
+    <!-- ==================================
+         ABOUT SECTION
+    =================================== -->
 
-    <section class="reveal" aria-labelledby="valuesTitle">
+    <section class="about-section reveal" aria-labelledby="aboutTitle">
 
-      <div class="section-heading">
-        <h2 id="valuesTitle">ماذا نقدم؟</h2>
-        <p>معًا نحو آفاق أوسع للمعرفة</p>
+      <div class="editorial-heading">
+
+        <span class="section-number">03</span>
+
+        <div>
+          <span class="section-label">عن النادي</span>
+          <h2 id="aboutTitle">تعرّف علينا أكثر</h2>
+        </div>
+
       </div>
 
-      <div class="values">
+      <div class="about-card">
+
+        <span class="about-symbol" aria-hidden="true">
+          ❧
+        </span>
+
+        <h3>من نحن؟</h3>
+
+        <p>
+          نادي الكتاب بجامعة طرابلس مبادرة طلابية
+          فكرية وثقافية، تتيح للطلبة فرصًا للقراءة
+          والحوار وتبادل المعرفة.
+        </p>
+
+        <p>
+          نلتقي حول الكتب والقضايا والأفكار،
+          لنتعلّم من بعضنا ونبني علاقة أعمق
+          بالحياة الفكرية والثقافية.
+        </p>
+
+        <div class="about-footer">
+          أحد الأندية التابعة لنادي جامعة طرابلس
+          الرياضي الثقافي الاجتماعي.
+        </div>
+
+      </div>
+
+      <!-- VALUES -->
+
+      <div class="values-grid">
 
         <article class="value-card">
-          <div class="value-icon" aria-hidden="true">📖</div>
-          <h3>القراءة</h3>
-          <p>تشجيع القراءة المنتظمة والتعلّم المستمر</p>
+
+          <span class="value-icon" aria-hidden="true">✦</span>
+
+          <h3>نقرأ</h3>
+
+          <p>
+            نكتشف الكتب ونوسّع معارفنا
+          </p>
+
         </article>
 
         <article class="value-card">
-          <div class="value-icon" aria-hidden="true">💬</div>
-          <h3>الحوار</h3>
-          <p>تبادل الأفكار وتنمية مهارات النقاش</p>
+
+          <span class="value-icon" aria-hidden="true">✧</span>
+
+          <h3>نفكّر</h3>
+
+          <p>
+            نتبادل الأفكار ووجهات النظر
+          </p>
+
         </article>
 
         <article class="value-card">
-          <div class="value-icon" aria-hidden="true">🌱</div>
-          <h3>المجتمع</h3>
-          <p>بناء روابط بين الطلبة حول اهتمامات مشتركة</p>
+
+          <span class="value-icon" aria-hidden="true">❋</span>
+
+          <h3>نتحاور</h3>
+
+          <p>
+            نصنع مساحة للنقاش والتعلّم
+          </p>
+
         </article>
+
+      </div>
+
+      <!-- ACCORDION -->
+
+      <div class="about-accordion">
+
+        <details>
+
+          <summary>
+            <span>فكرتنا</span>
+          </summary>
+
+          <div class="accordion-content">
+
+            نرى في القراءة وسيلة لتوسيع مداركنا،
+            وتعميق فهمنا، وتنمية قدرتنا على
+            التفكير والتعبير.
+
+            وتتكامل معها الحوارات والمحاضرات
+            والأنشطة الثقافية، لتمنح كل طالب
+            فرصة للمشاركة والاكتشاف.
+
+          </div>
+
+        </details>
+
+        <details>
+
+          <summary>
+            <span>رؤيتنا</span>
+          </summary>
+
+          <div class="accordion-content">
+
+            نحو حياة جامعية تزدهر بالمعرفة،
+            وتصبح فيها القراءة والحوار والمشاركة
+            الفكرية والثقافية جزءًا فاعلًا
+            من حياة الطالب.
+
+          </div>
+
+        </details>
+
+        <details>
+
+          <summary>
+            <span>أهدافنا</span>
+          </summary>
+
+          <div class="accordion-content">
+
+            <ul>
+              <li>تشجيع القراءة والتعلّم المستمر.</li>
+              <li>توسيع الآفاق الفكرية والثقافية.</li>
+              <li>تنمية مهارات النقاش والتعبير.</li>
+              <li>توفير مساحات للحوار داخل الجامعة.</li>
+              <li>بناء مجتمع طلابي يجمعه حب المعرفة.</li>
+            </ul>
+
+          </div>
+
+        </details>
 
       </div>
 
     </section>
 
 
-    <!-- REVIEWS -->
+    <!-- ==================================
+         REVIEWS SECTION
+    =================================== -->
 
     <section class="reviews-section reveal" aria-labelledby="reviewsTitle">
 
-      <div class="section-heading">
-        <h2 id="reviewsTitle">من بين صفحات تجربتهم</h2>
-        <p>تجارب وآراء المشاركين في نادي الكتاب</p>
+      <div class="editorial-heading">
+
+        <span class="section-number">04</span>
+
+        <div>
+          <span class="section-label">تجارب المشاركين</span>
+          <h2 id="reviewsTitle">من بين صفحات تجربتهم</h2>
+        </div>
+
       </div>
 
       <div class="reviews-card">
 
-        <div class="reviews-quote-icon" aria-hidden="true">❞</div>
+        <span class="quotation-mark" aria-hidden="true">
+          ”
+        </span>
 
-        <blockquote
-          id="reviewQuote"
-          aria-live="polite"
-          aria-atomic="true"
-        ></blockquote>
+        <div class="reviews-content">
 
-        <div class="review-author" id="reviewAuthor" hidden>
+          <blockquote
+            id="reviewText"
+            aria-live="polite"
+            aria-atomic="true"
+          ></blockquote>
 
-          <div class="review-avatar" aria-hidden="true">✦</div>
+          <div class="review-author" id="reviewAuthor" hidden>
 
-          <div>
-            <h3 id="reviewName"></h3>
-            <p id="reviewRole"></p>
+            <span class="author-decoration" aria-hidden="true">
+              ✦
+            </span>
+
+            <div>
+              <h3 id="reviewName"></h3>
+              <p id="reviewRole"></p>
+            </div>
+
           </div>
+
+        </div>
+
+        <div class="reviews-controls" id="reviewsControls" hidden>
+
+          <button
+            id="prevReview"
+            type="button"
+            aria-label="الرأي السابق"
+          >
+            →
+          </button>
+
+          <div class="review-dots" id="reviewDots"></div>
+
+          <button
+            id="nextReview"
+            type="button"
+            aria-label="الرأي التالي"
+          >
+            ←
+          </button>
 
         </div>
 
       </div>
 
-      <div
-        class="reviews-controls"
-        id="reviewsControls"
-        aria-label="التنقل بين آراء المشاركين"
-        hidden
-      >
-
-        <button
-          id="reviewPrev"
-          type="button"
-          aria-label="الرأي السابق"
-        >→</button>
-
-        <div id="reviewDots" class="review-dots"></div>
-
-        <button
-          id="reviewNext"
-          type="button"
-          aria-label="الرأي التالي"
-        >←</button>
-
-      </div>
-
     </section>
 
 
-    <!-- SHARE YOUR EXPERIENCE -->
+    <!-- ==================================
+         FEEDBACK SECTION
+    =================================== -->
 
     <section class="feedback-section reveal" aria-labelledby="feedbackTitle">
 
-      <div class="feedback-content">
+      <div class="feedback-card">
 
-        <span class="feedback-icon" aria-hidden="true">✦</span>
+        <span class="feedback-decoration" aria-hidden="true">
+          ✳
+        </span>
 
-        <h2 id="feedbackTitle">شاركنا رأيك وتجربتك</h2>
+        <span class="feedback-label">
+          نودّ سماع رأيك
+        </span>
 
-        <p class="feedback-description">
-          نسعد بمعرفة رأيك في نادي الكتاب بجامعة طرابلس،
-          والاستماع إلى تجربتك ومقترحاتك.
+        <h2 id="feedbackTitle">
+          شاركنا رأيك وتجربتك
+        </h2>
+
+        <p>
+          نسعد بمعرفة رأيك في نادي الكتاب
+          بجامعة طرابلس، والاستماع إلى
+          تجربتك ومقترحاتك.
 
           مشاركتك تساعدنا على تطوير أنشطتنا
           وتحسين تجربة المشاركين.
@@ -347,122 +514,76 @@
           class="feedback-button"
         >
           شاركنا تجربتك
+
           <span aria-hidden="true">↗</span>
         </a>
 
-        <p class="feedback-note">
-          قد نشارك بعض الآراء عبر منصات النادي
-          أو موقعه الإلكتروني، بعد الحصول على
-          موافقة أصحابها.
-        </p>
+        <span class="feedback-note">
+          لن ننشر رأيك دون موافقتك
+        </span>
 
       </div>
 
     </section>
 
 
-    <!-- ABOUT THE CLUB -->
+    <!-- ==================================
+         FOOTER ACTIONS
+    =================================== -->
 
-    <section class="reveal" aria-labelledby="aboutTitle">
+    <div class="footer-actions reveal">
 
-      <div class="section-heading">
-        <h2 id="aboutTitle">تعرّف علينا أكثر</h2>
-        <p>اكتشف فكرتنا ورؤيتنا وأهدافنا</p>
-      </div>
-
-      <div class="accordion">
-
-        <details>
-          <summary>فكرتنا</summary>
-
-          <div class="accordion-content">
-            نرى في القراءة وسيلة لتوسيع مداركنا،
-            وتعميق فهمنا، وتنمية قدرتنا على التفكير والتعبير.
-
-            وتتكامل معها الحوارات والمحاضرات
-            والأنشطة الثقافية، لتمنح كل طالب
-            فرصة للمشاركة والاكتشاف.
-          </div>
-        </details>
-
-        <details>
-          <summary>رؤيتنا</summary>
-
-          <div class="accordion-content">
-            نحو حياة جامعية تزدهر بالمعرفة.
-
-            نطمح إلى أن تكون القراءة والمعرفة والحوار
-            والمشاركة الفكرية والثقافية جزءًا فاعلًا
-            من حياة الطالب في جامعة طرابلس.
-          </div>
-        </details>
-
-        <details>
-          <summary>أهدافنا</summary>
-
-          <div class="accordion-content">
-
-            <ul class="goals-list">
-              <li>تشجيع القراءة المنتظمة والتعلّم المستمر.</li>
-              <li>توسيع الآفاق خارج حدود التخصص الأكاديمي.</li>
-              <li>تنمية مهارات التفكير والتعبير ومناقشة الأفكار.</li>
-              <li>توفير مساحات منتظمة للحوار داخل الجامعة.</li>
-              <li>بناء روابط بين طلبة تجمعهم اهتمامات مشتركة.</li>
-            </ul>
-
-          </div>
-        </details>
-
-      </div>
-
-    </section>
-
-
-    <!-- ACTION BUTTONS -->
-
-    <div class="actions reveal">
-
-      <button class="action-btn" id="shareBtn" type="button">
+      <button
+        id="shareWebsite"
+        class="footer-button"
+        type="button"
+      >
         ↗ مشاركة الصفحة
       </button>
 
-      <button class="action-btn" id="copyBtn" type="button">
+      <button
+        id="copyCommunity"
+        class="footer-button"
+        type="button"
+      >
         ⧉ نسخ رابط المجتمع
       </button>
-
-      <button
-        class="action-btn theme-btn"
-        id="themeBtn"
-        type="button"
-        aria-label="تفعيل الوضع الداكن"
-        aria-pressed="false"
-      >◐</button>
 
     </div>
 
 
-    <!-- FOOTER -->
+    <!-- ==================================
+         FOOTER
+    =================================== -->
 
-    <footer class="reveal">
+    <footer class="site-footer">
 
-      <div class="footer-line"></div>
+      <div class="footer-ornament">
+        ❦
+      </div>
 
-      <p>نادي الكتاب بجامعة طرابلس</p>
+      <h2>
+        نادي الكتاب
+      </h2>
 
-      <p class="english" lang="en">
+      <p>
+        جامعة طرابلس
+      </p>
+
+      <div class="footer-english" lang="en">
         Read. Think. Discuss.
-      </p>
+      </div>
 
-      <p class="copyright">
-        © <span id="year"></span> جميع الحقوق محفوظة
-      </p>
+      <div class="footer-copyright">
+        © <span id="year"></span> نادي الكتاب بجامعة طرابلس
+      </div>
 
     </footer>
 
   </main>
 
 
-  <!-- NOTIFICATIONS -->
+  <!-- TOAST -->
 
   <div
     class="toast"
