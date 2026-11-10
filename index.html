@@ -1,1329 +1,472 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#620116">
-<meta name="description" content="نادي الكتاب بجامعة طرابلس، مساحة تجمع الطلبة حول القراءة والمعرفة والحوار. اكتشف النادي وانضم إلى مجتمعنا.">
+  <meta charset="UTF-8">
 
-<title>نادي الكتاب بجامعة طرابلس | روابطنا</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#620116">
 
-<style>
-@font-face {
-  font-family: "Thmanyah";
-  src: url("./fonts/thmanyah-sans.woff2") format("woff2");
-  font-display: swap;
-}
+  <meta
+    name="description"
+    content="نادي الكتاب بجامعة طرابلس، مساحة تجمع الطلبة حول القراءة والمعرفة والحوار."
+  >
 
-/* REVIEWS SECTION */
+  <title>نادي الكتاب بجامعة طرابلس | روابطنا</title>
 
-.reviews-section {
-  margin-top: 35px;
-}
+  <!-- Google Fonts -->
 
-.reviews-card {
-  background: #620116;
-  color: #fff;
-  padding: 30px 25px;
-  border-radius: 20px;
-  text-align: center;
-  min-height: 265px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 14px 35px rgba(98, 1, 22, .15);
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.reviews-quote-icon {
-  font-family: Georgia, serif;
-  font-size: 56px;
-  color: #e9b9c4;
-  line-height: 1;
-  margin-bottom: 10px;
-}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-#reviewQuote {
-  font-family: "Cairo", sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 2.2;
-  max-width: 430px;
-  margin: 0 0 22px;
-}
+  <!-- Website Styles -->
 
-.review-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-align: right;
-  border-top: 1px solid rgba(255,255,255,.2);
-  padding-top: 18px;
-  width: 100%;
-  justify-content: center;
-}
+  <link rel="stylesheet" href="css/style.css">
 
-.review-avatar {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #FDF9F0;
-  color: #620116;
-  font-size: 22px;
-}
+  <!-- JavaScript -->
 
-.review-author h3 {
-  font-size: 15px;
-  color: #fff;
-}
-
-.review-author p {
-  font-size: 11px;
-  color: #efc6cf;
-}
-
-.reviews-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 20px;
-}
-
-.reviews-controls > button {
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--ink);
-  border-radius: 50%;
-  transition: .25s;
-}
-
-.reviews-controls > button:hover {
-  background: #620116;
-  color: #fff;
-}
-
-.review-dots {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.review-dot {
-  width: 8px;
-  height: 8px;
-  border: 0;
-  padding: 0;
-  background: #d8b9c1;
-  border-radius: 20px;
-  transition: .3s;
-}
-
-.review-dot.active {
-  width: 25px;
-  background: #620116;
-}
-
-:root {
-  --burgundy: #620116;
-  --cream: #FDF9F0;
-  --green: #344F39;
-  --ink: #341a21;
-  --muted: #806c70;
-  --card: #fffdf9;
-  --border: rgba(98,1,22,.13);
-  --shadow: 0 10px 35px rgba(98,1,22,.065);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Cairo", sans-serif;
-  background: var(--cream);
-  color: var(--ink);
-  line-height: 1.9;
-  overflow-x: hidden;
-}
-
-body.dark {
-  --cream: #190e12;
-  --ink: #fff3ee;
-  --muted: #c9b5b8;
-  --card: #28191e;
-  --border: rgba(255,255,255,.12);
-  --shadow: 0 10px 35px rgba(0,0,0,.12);
-}
-
-h1, h2, h3 {
-  font-family: "Thmanyah", "Cairo", sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  font: inherit;
-  cursor: pointer;
-}
-
-button:focus-visible,
-a:focus-visible,
-summary:focus-visible {
-  outline: 3px solid var(--green);
-  outline-offset: 4px;
-}
-
-.page {
-  width: min(100% - 32px, 520px);
-  margin: auto;
-  padding: 42px 0 35px;
-  position: relative;
-  z-index: 1;
-}
-
-/* BACKGROUND DECORATIONS */
-
-.ring {
-  position: fixed;
-  width: 360px;
-  height: 360px;
-  border: 1px solid rgba(98,1,22,.13);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.ring::before,
-.ring::after {
-  content: "";
-  position: absolute;
-  border: 1px solid rgba(98,1,22,.11);
-  border-radius: 50%;
-}
-
-.ring::before {
-  inset: 22px;
-}
-
-.ring::after {
-  inset: 44px;
-}
-
-.ring.top {
-  top: -230px;
-  right: -210px;
-}
-
-.ring.bottom {
-  bottom: -240px;
-  left: -200px;
-}
-
-.divider {
-  width: 60px;
-  height: 3px;
-  background: var(--burgundy);
-  border-radius: 5px;
-  margin: 0 auto 30px;
-}
-
-/* PROFILE */
-
-.profile {
-  text-align: center;
-}
-
-.logo-box {
-  width: 215px;
-  height: 215px;
-  border-radius: 50%;
-  background: #FDF9F0;
-  border: 1px solid rgba(98,1,22,.12);
-  margin: 0 auto 22px;
-  display: grid;
-  place-items: center;
-  box-shadow: var(--shadow);
-  position: relative;
-}
-
-.logo-box::after {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(98,1,22,.12);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.logo-box img {
-  width: 88%;
-  height: 88%;
-  object-fit: contain;
-}
-
-.profile h1 {
-  color: var(--burgundy);
-  font-size: clamp(27px, 6vw, 36px);
-  line-height: 1.5;
-}
-
-body.dark .profile h1 {
-  color: #f3c4ce;
-}
-
-.english {
-  font-family: "Cormorant Garamond", serif;
-  direction: ltr;
-  color: var(--muted);
-  font-size: 21px;
-  font-weight: 600;
-  line-height: 1.5;
-}
-
-.tagline {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 13px;
-  margin: 23px auto;
-  color: var(--burgundy);
-  font-weight: 700;
-  font-size: 14px;
-}
-
-body.dark .tagline {
-  color: #f3c4ce;
-}
-
-.tagline::before,
-.tagline::after {
-  content: "";
-  height: 1px;
-  width: 30px;
-  background: currentColor;
-  opacity: .5;
-}
-
-/* INTRODUCTION */
-
-.intro-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 25px;
-  text-align: center;
-  box-shadow: var(--shadow);
-  margin-bottom: 22px;
-}
-
-.intro-card h2 {
-  font-size: 23px;
-  color: var(--burgundy);
-  margin-bottom: 10px;
-}
-
-body.dark .intro-card h2 {
-  color: #f3c4ce;
-}
-
-.intro-card p {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 2.2;
-}
-
-.affiliation {
-  margin-top: 15px;
-  padding-top: 13px;
-  border-top: 1px solid var(--border);
-  font-size: 11px !important;
-}
-
-/* JOIN CARD */
-
-.join-card {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  background: var(--burgundy);
-  color: #fff;
-  padding: 27px;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(98,1,22,.22);
-  transition: transform .3s, box-shadow .3s;
-}
-
-.join-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 45px rgba(98,1,22,.3);
-}
-
-.join-card::after {
-  content: "";
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 50%;
-  left: -100px;
-  top: -100px;
-  pointer-events: none;
-}
-
-.join-label {
-  display: inline-block;
-  background: rgba(255,255,255,.14);
-  border-radius: 30px;
-  padding: 3px 12px;
-  font-size: 11px;
-  margin-bottom: 13px;
-}
-
-.join-card h2 {
-  font-size: 31px;
-  margin-bottom: 7px;
-}
-
-.join-card p {
-  font-size: 13px;
-  opacity: .85;
-  max-width: 360px;
-}
-
-.join-bottom {
-  margin-top: 20px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255,255,255,.2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 700;
-  font-size: 13px;
-}
-
-.arrow {
-  font-size: 21px;
-  transition: transform .3s;
-}
-
-.join-card:hover .arrow,
-.social-link:hover .arrow {
-  transform: translateX(-5px);
-}
-
-/* SECTION HEADINGS */
-
-.section-heading {
-  text-align: center;
-  margin: 38px 0 19px;
-}
-
-.section-heading h2 {
-  font-size: 24px;
-  color: var(--ink);
-}
-
-.section-heading p {
-  color: var(--muted);
-  font-size: 12px;
-  margin-top: 3px;
-}
-
-/* SOCIAL LINKS */
-
-.social-links {
-  display: grid;
-  gap: 12px;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 15px 18px;
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  transition: transform .3s, border-color .3s;
-}
-
-.social-link:hover {
-  transform: translateY(-3px);
-  border-color: rgba(98,1,22,.45);
-}
-
-.social-icon {
-  width: 49px;
-  height: 49px;
-  flex-shrink: 0;
-  background: rgba(98,1,22,.075);
-  border-radius: 13px;
-  display: grid;
-  place-items: center;
-  color: var(--burgundy);
-}
-
-.social-icon svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-}
-
-.social-info {
-  flex: 1;
-}
-
-.social-info h3 {
-  font-size: 17px;
-  margin-bottom: 2px;
-}
-
-.social-info p {
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.social-link .arrow {
-  color: var(--burgundy);
-}
-
-/* VALUES */
-
-.values {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.value-card {
-  text-align: center;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 15px;
-  padding: 20px 10px;
-  transition: transform .3s;
-}
-
-.value-card:hover {
-  transform: translateY(-4px);
-}
-
-.value-icon {
-  font-size: 26px;
-  margin-bottom: 9px;
-}
-
-.value-card h3 {
-  font-size: 15px;
-  margin-bottom: 7px;
-}
-
-.value-card p {
-  font-size: 10px;
-  color: var(--muted);
-  line-height: 1.9;
-}
-
-/* ABOUT ACCORDION */
-
-.accordion {
-  display: grid;
-  gap: 10px;
-}
-
-.accordion details {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.accordion summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 16px 19px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 700;
-  font-size: 15px;
-}
-
-.accordion summary::-webkit-details-marker {
-  display: none;
-}
-
-.accordion summary::after {
-  content: "+";
-  font-size: 23px;
-  color: var(--burgundy);
-  line-height: 1;
-}
-
-.accordion details[open] summary::after {
-  content: "−";
-}
-
-.accordion .accordion-content {
-  padding: 0 19px 19px;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 2.1;
-}
-
-.goals-list {
-  padding-right: 18px;
-}
-
-.goals-list li {
-  margin-bottom: 8px;
-}
-
-/* ACTIONS */
-
-.actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 28px;
-}
-
-.action-btn {
-  flex: 1;
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--ink);
-  border-radius: 12px;
-  padding: 12px 10px;
-  font-size: 12px;
-  font-weight: 700;
-  transition: .25s;
-}
-
-.action-btn:hover {
-  background: var(--burgundy);
-  color: #fff;
-}
-
-.theme-btn {
-  flex: 0 0 48px;
-  font-size: 19px;
-}
-
-/* FOOTER */
-
-footer {
-  text-align: center;
-  padding-top: 48px;
-}
-
-.footer-line {
-  width: 75px;
-  height: 1px;
-  background: var(--burgundy);
-  opacity: .5;
-  margin: 0 auto 20px;
-}
-
-footer p {
-  color: var(--muted);
-  font-size: 11px;
-}
-
-footer .english {
-  font-size: 18px;
-  margin-top: 6px;
-}
-
-.toast {
-  position: fixed;
-  bottom: 25px;
-  left: 50%;
-  transform: translate(-50%, 25px);
-  background: var(--green);
-  color: #fff;
-  padding: 11px 22px;
-  border-radius: 12px;
-  font-size: 12px;
-  opacity: 0;
-  visibility: hidden;
-  transition: .3s;
-  z-index: 100;
-  white-space: nowrap;
-  max-width: 95vw;
-}
-
-.toast.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, 0);
-}
-
-/* SCROLL ANIMATIONS */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .6s, transform .6s;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media(max-width:480px) {
-  .page {
-    padding-top: 30px;
-  }
-
-  .logo-box {
-    width: 190px;
-    height: 190px;
-  }
-
-  .intro-card {
-    padding: 20px;
-  }
-
-  .join-card {
-    padding: 23px;
-  }
-
-  .values {
-    gap: 7px;
-  }
-
-  .value-card {
-    padding: 16px 6px;
-  }
-
-  .value-card h3 {
-    font-size: 13px;
-  }
-
-  .value-card p {
-    font-size: 9px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
-</style>
+  <script src="js/script.js" defer></script>
 </head>
 
 <body>
 
-<div class="ring top" aria-hidden="true"></div>
-<div class="ring bottom" aria-hidden="true"></div>
+  <!-- Background Decorations -->
 
-<main class="page">
+  <div class="ring top" aria-hidden="true"></div>
+  <div class="ring bottom" aria-hidden="true"></div>
 
-  <div class="divider"></div>
+  <main class="page">
 
-  <!-- PROFILE -->
+    <div class="divider"></div>
 
-  <header class="profile">
+    <!-- PROFILE -->
 
-    <div class="logo-box">
-      <img
-        src="logo.png"
-        alt="شعار نادي الكتاب بجامعة طرابلس"
-        width="200"
-        height="200"
-      >
-    </div>
+    <header class="profile">
 
-    <h1>نادي الكتاب بجامعة طرابلس</h1>
-
-    <p class="english" lang="en">
-      University of Tripoli Book Club
-    </p>
-
-    <div class="tagline">
-      نحو جامعة تقرأ، تفكّر، تتحاور
-    </div>
-
-  </header>
-
-  <!-- WHO WE ARE -->
-
-  <section class="intro-card reveal" aria-labelledby="whoTitle">
-
-    <h2 id="whoTitle">من نحن؟</h2>
-
-    <p>
-      نادي الكتاب بجامعة طرابلس مبادرة طلابية فكرية
-      وثقافية، تتيح للطلبة فرصًا للقراءة والحوار
-      وتبادل المعرفة.
-      نلتقي حول الكتب والقضايا والأفكار،
-      لنتعلّم من بعضنا ونبني علاقة أعمق
-      بالحياة الفكرية والثقافية.
-    </p>
-
-    <p class="affiliation">
-      أحد الأندية التابعة لنادي جامعة طرابلس
-      الرياضي الثقافي الاجتماعي.
-    </p>
-
-  </section>
-
-  <!-- JOIN -->
-
-  <section class="reveal" aria-labelledby="joinTitle">
-
-    <a
-      class="join-card"
-      href="https://t.me/+6G4O9-Gd8942N2Jk"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-
-      <span class="join-label">
-        مجتمع نادي الكتاب
-      </span>
-
-      <h2 id="joinTitle">انضم إلينا ✦</h2>
-
-      <p>
-        انضم إلى مجتمع يجمع محبّي القراءة
-        والثقافة والحوار، وكن جزءًا من رحلتنا
-        نحو المعرفة.
-      </p>
-
-      <div class="join-bottom">
-        <span>الانضمام عبر تيليجرام</span>
-        <span class="arrow" aria-hidden="true">←</span>
+      <div class="logo-box">
+        <img
+          src="assets/images/logo.png"
+          alt="شعار نادي الكتاب بجامعة طرابلس"
+          width="200"
+          height="200"
+        >
       </div>
 
-    </a>
+      <h1>نادي الكتاب بجامعة طرابلس</h1>
 
-  </section>
+      <p class="english" lang="en">
+        University of Tripoli Book Club
+      </p>
 
-  <!-- SOCIAL MEDIA -->
+      <div class="tagline">
+        نحو جامعة تقرأ، تفكّر، تتحاور
+      </div>
 
-  <section class="reveal" aria-labelledby="socialTitle">
+    </header>
 
-    <div class="section-heading">
-      <h2 id="socialTitle">تابعنا على منصاتنا</h2>
-      <p>كن على اطلاع بكل جديد في نادي الكتاب</p>
-    </div>
 
-    <div class="social-links">
+    <!-- WHO WE ARE -->
 
-      <!-- INSTAGRAM -->
+    <section class="intro-card reveal" aria-labelledby="whoTitle">
 
-      <a
-        class="social-link"
-        href="https://www.instagram.com/uot.book.club?rpxt=MWRnd21oamV1eHlnOA=="
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <h2 id="whoTitle">من نحن؟</h2>
 
-        <div class="social-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm10.5 1.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
-          </svg>
-        </div>
+      <p>
+        نادي الكتاب بجامعة طرابلس مبادرة طلابية فكرية
+        وثقافية، تتيح للطلبة فرصًا للقراءة والحوار
+        وتبادل المعرفة.
 
-        <div class="social-info">
-          <h3>إنستغرام</h3>
-          <p>صور وفعاليات وآخر أخبار النادي</p>
-        </div>
+        نلتقي حول الكتب والقضايا والأفكار،
+        لنتعلّم من بعضنا ونبني علاقة أعمق
+        بالحياة الفكرية والثقافية.
+      </p>
 
-        <span class="arrow" aria-hidden="true">←</span>
+      <p class="affiliation">
+        أحد الأندية التابعة لنادي جامعة طرابلس
+        الرياضي الثقافي الاجتماعي.
+      </p>
 
-      </a>
+    </section>
 
-      <!-- FACEBOOK -->
 
-      <a
-        class="social-link"
-        href="https://www.facebook.com/share/1Dxv63MA9V/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+    <!-- JOIN COMMUNITY -->
 
-        <div class="social-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.2 0-1.6.7-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/>
-          </svg>
-        </div>
-
-        <div class="social-info">
-          <h3>فيسبوك</h3>
-          <p>منشورات النادي وأنشطته الثقافية</p>
-        </div>
-
-        <span class="arrow" aria-hidden="true">←</span>
-
-      </a>
-
-      <!-- TELEGRAM -->
+    <section class="reveal" aria-labelledby="joinTitle">
 
       <a
-        class="social-link"
+        class="join-card"
         href="https://t.me/+6G4O9-Gd8942N2Jk"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <div class="social-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21.5 3.5L2.7 10.8c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.9 5.9c.2.6.1.8.8.8.5 0 .8-.2 1.1-.5l2.7-2.6 5.6 4.1c1 .6 1.7.3 2-1l3.3-15.5c.4-1.3-.5-1.9-1.5-1.5zM8 13.5l10.8-6.8c.5-.3 1-.1.6.3l-9.2 8.3-.4 4.1L8 13.5z"/>
-          </svg>
-        </div>
+        <span class="join-label">
+          مجتمع نادي الكتاب
+        </span>
 
-        <div class="social-info">
-          <h3>تيليجرام</h3>
-          <p>مجتمع القراءة والحوار</p>
-        </div>
+        <h2 id="joinTitle">انضم إلينا ✦</h2>
 
-        <span class="arrow" aria-hidden="true">←</span>
+        <p>
+          انضم إلى مجتمع يجمع محبّي القراءة
+          والثقافة والحوار، وكن جزءًا من رحلتنا
+          نحو المعرفة.
+        </p>
+
+        <div class="join-bottom">
+          <span>الانضمام عبر تيليجرام</span>
+          <span class="arrow" aria-hidden="true">←</span>
+        </div>
 
       </a>
 
-    </div>
+    </section>
 
-  </section>
 
-  <!-- WHAT WE DO -->
+    <!-- SOCIAL MEDIA -->
 
-  <section class="reveal" aria-labelledby="valuesTitle">
+    <section class="reveal" aria-labelledby="socialTitle">
 
-    <div class="section-heading">
-      <h2 id="valuesTitle">ماذا نقدم؟</h2>
-      <p>معًا نحو آفاق أوسع للمعرفة</p>
-    </div>
-
-    <div class="values">
-
-      <article class="value-card">
-        <div class="value-icon" aria-hidden="true">📖</div>
-        <h3>القراءة</h3>
-        <p>تشجيع القراءة المنتظمة والتعلّم المستمر</p>
-      </article>
-
-      <article class="value-card">
-        <div class="value-icon" aria-hidden="true">💬</div>
-        <h3>الحوار</h3>
-        <p>تبادل الأفكار وتنمية مهارات النقاش</p>
-      </article>
-
-      <article class="value-card">
-        <div class="value-icon" aria-hidden="true">🌱</div>
-        <h3>المجتمع</h3>
-        <p>بناء روابط بين الطلبة حول اهتمامات مشتركة</p>
-      </article>
-
-    </div>
-
-  </section>
-
-  
-<section class="reviews-section reveal" aria-labelledby="reviewsTitle">
-  <div class="section-heading">
-    <h2 id="reviewsTitle">من بين صفحات تجربتهم</h2>
-    <p>تجارب وآراء المشاركين في نادي الكتاب</p>
-  </div>
-
-  <div class="reviews-card">
-    <div class="reviews-quote-icon" aria-hidden="true">❞</div>
-    <blockquote id="reviewQuote" aria-live="polite"></blockquote>
-
-    <div class="review-author">
-      <div class="review-avatar" aria-hidden="true">✦</div>
-      <div>
-        <h3 id="reviewName"></h3>
-        <p id="reviewRole"></p>
+      <div class="section-heading">
+        <h2 id="socialTitle">تابعنا على منصاتنا</h2>
+        <p>كن على اطلاع بكل جديد في نادي الكتاب</p>
       </div>
-    </div>
-  </div>
 
-  <div class="reviews-controls">
-    <button id="reviewPrev" type="button"
-      aria-label="الرأي السابق">→</button>
-    <div id="reviewDots" class="review-dots"
-      aria-label="اختيار رأي"></div>
-    <button id="reviewNext" type="button"
-      aria-label="الرأي التالي">←</button>
-  </div>
-</section>
+      <div class="social-links">
+
+        <!-- Instagram -->
+
+        <a
+          class="social-link"
+          href="https://www.instagram.com/uot.book.club/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="social-icon" aria-hidden="true">
+
+            <svg viewBox="0 0 24 24">
+              <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm10.5 1.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
+            </svg>
+
+          </div>
+
+          <div class="social-info">
+            <h3>إنستغرام</h3>
+            <p>صور وفعاليات وآخر أخبار النادي</p>
+          </div>
+
+          <span class="arrow" aria-hidden="true">←</span>
+
+        </a>
 
 
-  <!-- MORE ABOUT THE CLUB -->
+        <!-- Facebook -->
 
-  <section class="reveal" aria-labelledby="aboutTitle">
+        <a
+          class="social-link"
+          href="https://www.facebook.com/share/1Dxv63MA9V/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
 
-    <div class="section-heading">
-      <h2 id="aboutTitle">تعرّف علينا أكثر</h2>
-      <p>اكتشف فكرتنا ورؤيتنا وأهدافنا</p>
-    </div>
+          <div class="social-icon" aria-hidden="true">
 
-    <div class="accordion">
+            <svg viewBox="0 0 24 24">
+              <path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.2 0-1.6.7-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/>
+            </svg>
 
-      <details>
-        <summary>فكرتنا</summary>
+          </div>
 
-        <div class="accordion-content">
-          نرى في القراءة وسيلة لتوسيع مداركنا،
-          وتعميق فهمنا، وتنمية قدرتنا على التفكير
-          والتعبير.
+          <div class="social-info">
+            <h3>فيسبوك</h3>
+            <p>منشورات النادي وأنشطته الثقافية</p>
+          </div>
 
-          وتتكامل معها الحوارات والمحاضرات
-          والأنشطة الثقافية، لتمنح كل طالب
-          فرصة للمشاركة والاكتشاف.
+          <span class="arrow" aria-hidden="true">←</span>
+
+        </a>
+
+
+        <!-- Telegram -->
+
+        <a
+          class="social-link"
+          href="https://t.me/+6G4O9-Gd8942N2Jk"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="social-icon" aria-hidden="true">
+
+            <svg viewBox="0 0 24 24">
+              <path d="M21.5 3.5L2.7 10.8c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.9 5.9c.2.6.1.8.8.8.5 0 .8-.2 1.1-.5l2.7-2.6 5.6 4.1c1 .6 1.7.3 2-1l3.3-15.5c.4-1.3-.5-1.9-1.5-1.5zM8 13.5l10.8-6.8c.5-.3 1-.1.6.3l-9.2 8.3-.4 4.1L8 13.5z"/>
+            </svg>
+
+          </div>
+
+          <div class="social-info">
+            <h3>تيليجرام</h3>
+            <p>مجتمع القراءة والحوار</p>
+          </div>
+
+          <span class="arrow" aria-hidden="true">←</span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- WHAT WE OFFER -->
+
+    <section class="reveal" aria-labelledby="valuesTitle">
+
+      <div class="section-heading">
+        <h2 id="valuesTitle">ماذا نقدم؟</h2>
+        <p>معًا نحو آفاق أوسع للمعرفة</p>
+      </div>
+
+      <div class="values">
+
+        <article class="value-card">
+          <div class="value-icon" aria-hidden="true">📖</div>
+          <h3>القراءة</h3>
+          <p>تشجيع القراءة المنتظمة والتعلّم المستمر</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-icon" aria-hidden="true">💬</div>
+          <h3>الحوار</h3>
+          <p>تبادل الأفكار وتنمية مهارات النقاش</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-icon" aria-hidden="true">🌱</div>
+          <h3>المجتمع</h3>
+          <p>بناء روابط بين الطلبة حول اهتمامات مشتركة</p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- REVIEWS -->
+
+    <section class="reviews-section reveal" aria-labelledby="reviewsTitle">
+
+      <div class="section-heading">
+        <h2 id="reviewsTitle">من بين صفحات تجربتهم</h2>
+        <p>تجارب وآراء المشاركين في نادي الكتاب</p>
+      </div>
+
+      <div class="reviews-card">
+
+        <div class="reviews-quote-icon" aria-hidden="true">❞</div>
+
+        <blockquote
+          id="reviewQuote"
+          aria-live="polite"
+          aria-atomic="true"
+        ></blockquote>
+
+        <div class="review-author" id="reviewAuthor" hidden>
+
+          <div class="review-avatar" aria-hidden="true">✦</div>
+
+          <div>
+            <h3 id="reviewName"></h3>
+            <p id="reviewRole"></p>
+          </div>
+
         </div>
-      </details>
 
-      <details>
-        <summary>رؤيتنا</summary>
+      </div>
 
-        <div class="accordion-content">
-          نحو حياة جامعية تزدهر بالمعرفة.
+      <div
+        class="reviews-controls"
+        id="reviewsControls"
+        aria-label="التنقل بين آراء المشاركين"
+        hidden
+      >
 
-          نطمح إلى أن تكون القراءة والمعرفة
-          والحوار والمشاركة الفكرية والثقافية
-          جزءًا فاعلًا من حياة الطالب
-          في جامعة طرابلس.
-        </div>
-      </details>
+        <button
+          id="reviewPrev"
+          type="button"
+          aria-label="الرأي السابق"
+        >→</button>
 
-      <details>
-        <summary>أهدافنا</summary>
+        <div id="reviewDots" class="review-dots"></div>
 
-        <div class="accordion-content">
-          <ul class="goals-list">
-            <li>تشجيع القراءة المنتظمة والتعلّم المستمر.</li>
-            <li>توسيع الآفاق خارج حدود التخصص الأكاديمي.</li>
-            <li>تنمية مهارات التفكير والتعبير ومناقشة الأفكار.</li>
-            <li>توفير مساحات منتظمة للحوار داخل الجامعة.</li>
-            <li>بناء روابط بين طلبة تجمعهم اهتمامات مشتركة.</li>
-          </ul>
-        </div>
-      </details>
+        <button
+          id="reviewNext"
+          type="button"
+          aria-label="الرأي التالي"
+        >←</button>
+
+      </div>
+
+    </section>
+
+
+    <!-- SHARE YOUR EXPERIENCE -->
+
+    <section class="feedback-section reveal" aria-labelledby="feedbackTitle">
+
+      <div class="feedback-content">
+
+        <span class="feedback-icon" aria-hidden="true">✦</span>
+
+        <h2 id="feedbackTitle">شاركنا رأيك وتجربتك</h2>
+
+        <p class="feedback-description">
+          نسعد بمعرفة رأيك في نادي الكتاب بجامعة طرابلس،
+          والاستماع إلى تجربتك ومقترحاتك.
+
+          مشاركتك تساعدنا على تطوير أنشطتنا
+          وتحسين تجربة المشاركين.
+        </p>
+
+        <a
+          href="https://forms.gle/a7q2nxTtEFkN9dhW6"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="feedback-button"
+        >
+          شاركنا تجربتك
+          <span aria-hidden="true">↗</span>
+        </a>
+
+        <p class="feedback-note">
+          قد نشارك بعض الآراء عبر منصات النادي
+          أو موقعه الإلكتروني، بعد الحصول على
+          موافقة أصحابها.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT THE CLUB -->
+
+    <section class="reveal" aria-labelledby="aboutTitle">
+
+      <div class="section-heading">
+        <h2 id="aboutTitle">تعرّف علينا أكثر</h2>
+        <p>اكتشف فكرتنا ورؤيتنا وأهدافنا</p>
+      </div>
+
+      <div class="accordion">
+
+        <details>
+          <summary>فكرتنا</summary>
+
+          <div class="accordion-content">
+            نرى في القراءة وسيلة لتوسيع مداركنا،
+            وتعميق فهمنا، وتنمية قدرتنا على التفكير والتعبير.
+
+            وتتكامل معها الحوارات والمحاضرات
+            والأنشطة الثقافية، لتمنح كل طالب
+            فرصة للمشاركة والاكتشاف.
+          </div>
+        </details>
+
+        <details>
+          <summary>رؤيتنا</summary>
+
+          <div class="accordion-content">
+            نحو حياة جامعية تزدهر بالمعرفة.
+
+            نطمح إلى أن تكون القراءة والمعرفة والحوار
+            والمشاركة الفكرية والثقافية جزءًا فاعلًا
+            من حياة الطالب في جامعة طرابلس.
+          </div>
+        </details>
+
+        <details>
+          <summary>أهدافنا</summary>
+
+          <div class="accordion-content">
+
+            <ul class="goals-list">
+              <li>تشجيع القراءة المنتظمة والتعلّم المستمر.</li>
+              <li>توسيع الآفاق خارج حدود التخصص الأكاديمي.</li>
+              <li>تنمية مهارات التفكير والتعبير ومناقشة الأفكار.</li>
+              <li>توفير مساحات منتظمة للحوار داخل الجامعة.</li>
+              <li>بناء روابط بين طلبة تجمعهم اهتمامات مشتركة.</li>
+            </ul>
+
+          </div>
+        </details>
+
+      </div>
+
+    </section>
+
+
+    <!-- ACTION BUTTONS -->
+
+    <div class="actions reveal">
+
+      <button class="action-btn" id="shareBtn" type="button">
+        ↗ مشاركة الصفحة
+      </button>
+
+      <button class="action-btn" id="copyBtn" type="button">
+        ⧉ نسخ رابط المجتمع
+      </button>
+
+      <button
+        class="action-btn theme-btn"
+        id="themeBtn"
+        type="button"
+        aria-label="تفعيل الوضع الداكن"
+        aria-pressed="false"
+      >◐</button>
 
     </div>
 
-  </section>
 
-  <!-- INTERACTIVE ACTIONS -->
+    <!-- FOOTER -->
 
-  <div class="actions reveal">
+    <footer class="reveal">
 
-    <button class="action-btn" id="shareBtn" type="button">
-      ↗ مشاركة الصفحة
-    </button>
+      <div class="footer-line"></div>
 
-    <button class="action-btn" id="copyBtn" type="button">
-      ⧉ نسخ رابط المجتمع
-    </button>
+      <p>نادي الكتاب بجامعة طرابلس</p>
 
-    <button
-      class="action-btn theme-btn"
-      id="themeBtn"
-      type="button"
-      aria-label="تفعيل الوضع الداكن"
-      aria-pressed="false"
-    >
-      ◐
-    </button>
+      <p class="english" lang="en">
+        Read. Think. Discuss.
+      </p>
 
-  </div>
+      <p class="copyright">
+        © <span id="year"></span> جميع الحقوق محفوظة
+      </p>
 
-  <!-- FOOTER -->
+    </footer>
 
-  <footer class="reveal">
+  </main>
 
-    <div class="footer-line"></div>
 
-    <p>نادي الكتاب بجامعة طرابلس</p>
+  <!-- NOTIFICATIONS -->
 
-    <p class="english" lang="en">
-      Read. Think. Discuss.
-    </p>
-
-    <p style="margin-top:14px">
-      © <span id="year"></span> جميع الحقوق محفوظة
-    </p>
-
-  </footer>
-
-</main>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<script>
-  
-const reviews = [
-  {
-    name: "مشارك في النادي",
-    role: "نموذج توضيحي",
-    quote: "نادي الكتاب ليس مجرد مكان لقراءة الكتب، بل مساحة للنقاش وتبادل الأفكار والتعرّف على وجهات نظر مختلفة."
-  },
-  {
-    name: "مشاركة في النادي",
-    role: "نموذج توضيحي",
-    quote: "أجمل ما في التجربة هو أن كل لقاء يفتح أمامنا أبوابًا جديدة للتفكير، ويجعل القراءة أكثر متعة."
-  },
-  {
-    name: "أحد أعضاء المجتمع",
-    role: "نموذج توضيحي",
-    quote: "القراءة مع الآخرين تمنح الكتاب حياة أخرى، وتجعل كل نقاش فرصة لاكتشاف فكرة جديدة."
-  }
-];
-
-let currentReview = 0;
-
-const reviewQuote = document.getElementById("reviewQuote");
-const reviewName = document.getElementById("reviewName");
-const reviewRole = document.getElementById("reviewRole");
-const reviewDots = document.getElementById("reviewDots");
-
-function showReview(index) {
-  currentReview = (index + reviews.length) % reviews.length;
-  const review = reviews[currentReview];
-
-  reviewQuote.textContent = `«${review.quote}»`;
-  reviewName.textContent = review.name;
-  reviewRole.textContent = review.role;
-
-  Array.from(reviewDots.children).forEach((dot, i) => {
-    dot.classList.toggle("active", i === currentReview);
-    dot.setAttribute("aria-current", String(i === currentReview));
-  });
-}
-
-reviews.forEach((review, index) => {
-  const dot = document.createElement("button");
-  dot.type = "button";
-  dot.className = "review-dot";
-  dot.setAttribute("aria-label", `عرض الرأي ${index + 1}`);
-  dot.addEventListener("click", () => showReview(index));
-  reviewDots.appendChild(dot);
-});
-
-document.getElementById("reviewPrev").addEventListener("click", () => {
-  showReview(currentReview - 1);
-});
-
-document.getElementById("reviewNext").addEventListener("click", () => {
-  showReview(currentReview + 1);
-});
-
-showReview(0);
-
-"use strict";
-
-const communityURL = "https://t.me/+6G4O9-Gd8942N2Jk";
-
-const toast = document.getElementById("toast");
-const copyBtn = document.getElementById("copyBtn");
-const shareBtn = document.getElementById("shareBtn");
-const themeBtn = document.getElementById("themeBtn");
-
-let toastTimer;
-
-// Toast notification
-
-function showToast(message) {
-  toast.textContent = message;
-  toast.classList.add("show");
-
-  clearTimeout(toastTimer);
-
-  toastTimer = setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2800);
-}
-
-// Clipboard functionality
-
-async function copyText(value) {
-  if (navigator.clipboard && window.isSecureContext) {
-    await navigator.clipboard.writeText(value);
-    return;
-  }
-
-  const input = document.createElement("textarea");
-
-  input.value = value;
-  input.style.position = "fixed";
-  input.style.opacity = "0";
-
-  document.body.appendChild(input);
-
-  input.select();
-
-  const success = document.execCommand("copy");
-
-  input.remove();
-
-  if (!success) {
-    throw new Error("Copy failed");
-  }
-}
-
-// Copy Telegram community link
-
-copyBtn.addEventListener("click", async () => {
-  try {
-    await copyText(communityURL);
-    showToast("تم نسخ رابط المجتمع بنجاح ✓");
-  } catch {
-    showToast("تعذّر نسخ الرابط");
-  }
-});
-
-// Share website
-
-shareBtn.addEventListener("click", async () => {
-  const data = {
-    title: "نادي الكتاب بجامعة طرابلس",
-    text: "نحو جامعة تقرأ، تفكّر، تتحاور",
-    url: window.location.href
-  };
-
-  if (navigator.share) {
-    try {
-      await navigator.share(data);
-    } catch (error) {
-      if (error.name !== "AbortError") {
-        showToast("تعذّرت مشاركة الصفحة");
-      }
-    }
-  } else {
-    try {
-      await copyText(window.location.href);
-      showToast("تم نسخ رابط الصفحة ✓");
-    } catch {
-      showToast("تعذّر نسخ رابط الصفحة");
-    }
-  }
-});
-
-// Theme toggle
-
-try {
-  if (localStorage.getItem("bookclub-theme") === "dark") {
-    document.body.classList.add("dark");
-  }
-} catch {
-  // Continue with the default light theme.
-}
-
-function updateThemeButton() {
-  const dark = document.body.classList.contains("dark");
-
-  themeBtn.textContent = dark ? "☀" : "◐";
-  themeBtn.setAttribute("aria-pressed", String(dark));
-  themeBtn.setAttribute(
-    "aria-label",
-    dark ? "تفعيل الوضع الفاتح" : "تفعيل الوضع الداكن"
-  );
-}
-
-updateThemeButton();
-
-themeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-
-  const dark = document.body.classList.contains("dark");
-
-  try {
-    localStorage.setItem(
-      "bookclub-theme",
-      dark ? "dark" : "light"
-    );
-  } catch {
-    // Theme switching still works for this session.
-  }
-
-  updateThemeButton();
-});
-
-// Scroll animations
-
-const revealElements = document.querySelectorAll(".reveal");
-
-if (
-  "IntersectionObserver" in window &&
-  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-) {
-  const observer = new IntersectionObserver(
-    (entries, currentObserver) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          currentObserver.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.08
-    }
-  );
-
-  revealElements.forEach(element => {
-    observer.observe(element);
-  });
-} else {
-  revealElements.forEach(element => {
-    element.classList.add("visible");
-  });
-}
-
-// Keep only one accordion open at a time
-
-const accordions = document.querySelectorAll(".accordion details");
-
-accordions.forEach(current => {
-  current.addEventListener("toggle", () => {
-    if (!current.open) return;
-
-    accordions.forEach(other => {
-      if (other !== current) {
-        other.open = false;
-      }
-    });
-  });
-});
-
-// Copyright year
-
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-</script>
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
 
 </body>
 </html>
