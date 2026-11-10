@@ -19,6 +19,119 @@
   font-display: swap;
 }
 
+/* REVIEWS SECTION */
+
+.reviews-section {
+  margin-top: 35px;
+}
+
+.reviews-card {
+  background: #620116;
+  color: #fff;
+  padding: 30px 25px;
+  border-radius: 20px;
+  text-align: center;
+  min-height: 265px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 35px rgba(98, 1, 22, .15);
+}
+
+.reviews-quote-icon {
+  font-family: Georgia, serif;
+  font-size: 56px;
+  color: #e9b9c4;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+#reviewQuote {
+  font-family: "Cairo", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 2.2;
+  max-width: 430px;
+  margin: 0 0 22px;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: right;
+  border-top: 1px solid rgba(255,255,255,.2);
+  padding-top: 18px;
+  width: 100%;
+  justify-content: center;
+}
+
+.review-avatar {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #FDF9F0;
+  color: #620116;
+  font-size: 22px;
+}
+
+.review-author h3 {
+  font-size: 15px;
+  color: #fff;
+}
+
+.review-author p {
+  font-size: 11px;
+  color: #efc6cf;
+}
+
+.reviews-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.reviews-controls > button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 50%;
+  transition: .25s;
+}
+
+.reviews-controls > button:hover {
+  background: #620116;
+  color: #fff;
+}
+
+.review-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review-dot {
+  width: 8px;
+  height: 8px;
+  border: 0;
+  padding: 0;
+  background: #d8b9c1;
+  border-radius: 20px;
+  transition: .3s;
+}
+
+.review-dot.active {
+  width: 25px;
+  background: #620116;
+}
+
 :root {
   --burgundy: #620116;
   --cream: #FDF9F0;
@@ -836,6 +949,37 @@ footer .english {
     </div>
 
   </section>
+
+  
+<section class="reviews-section reveal" aria-labelledby="reviewsTitle">
+  <div class="section-heading">
+    <h2 id="reviewsTitle">من بين صفحات تجربتهم</h2>
+    <p>تجارب وآراء المشاركين في نادي الكتاب</p>
+  </div>
+
+  <div class="reviews-card">
+    <div class="reviews-quote-icon" aria-hidden="true">❞</div>
+    <blockquote id="reviewQuote" aria-live="polite"></blockquote>
+
+    <div class="review-author">
+      <div class="review-avatar" aria-hidden="true">✦</div>
+      <div>
+        <h3 id="reviewName"></h3>
+        <p id="reviewRole"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-controls">
+    <button id="reviewPrev" type="button"
+      aria-label="الرأي السابق">→</button>
+    <div id="reviewDots" class="review-dots"
+      aria-label="اختيار رأي"></div>
+    <button id="reviewNext" type="button"
+      aria-label="الرأي التالي">←</button>
+  </div>
+</section>
+
 
   <!-- MORE ABOUT THE CLUB -->
 
