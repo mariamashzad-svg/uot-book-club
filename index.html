@@ -1084,6 +1084,65 @@ footer .english {
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
+  
+const reviews = [
+  {
+    name: "مشارك في النادي",
+    role: "نموذج توضيحي",
+    quote: "نادي الكتاب ليس مجرد مكان لقراءة الكتب، بل مساحة للنقاش وتبادل الأفكار والتعرّف على وجهات نظر مختلفة."
+  },
+  {
+    name: "مشاركة في النادي",
+    role: "نموذج توضيحي",
+    quote: "أجمل ما في التجربة هو أن كل لقاء يفتح أمامنا أبوابًا جديدة للتفكير، ويجعل القراءة أكثر متعة."
+  },
+  {
+    name: "أحد أعضاء المجتمع",
+    role: "نموذج توضيحي",
+    quote: "القراءة مع الآخرين تمنح الكتاب حياة أخرى، وتجعل كل نقاش فرصة لاكتشاف فكرة جديدة."
+  }
+];
+
+let currentReview = 0;
+
+const reviewQuote = document.getElementById("reviewQuote");
+const reviewName = document.getElementById("reviewName");
+const reviewRole = document.getElementById("reviewRole");
+const reviewDots = document.getElementById("reviewDots");
+
+function showReview(index) {
+  currentReview = (index + reviews.length) % reviews.length;
+  const review = reviews[currentReview];
+
+  reviewQuote.textContent = `«${review.quote}»`;
+  reviewName.textContent = review.name;
+  reviewRole.textContent = review.role;
+
+  Array.from(reviewDots.children).forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentReview);
+    dot.setAttribute("aria-current", String(i === currentReview));
+  });
+}
+
+reviews.forEach((review, index) => {
+  const dot = document.createElement("button");
+  dot.type = "button";
+  dot.className = "review-dot";
+  dot.setAttribute("aria-label", `عرض الرأي ${index + 1}`);
+  dot.addEventListener("click", () => showReview(index));
+  reviewDots.appendChild(dot);
+});
+
+document.getElementById("reviewPrev").addEventListener("click", () => {
+  showReview(currentReview - 1);
+});
+
+document.getElementById("reviewNext").addEventListener("click", () => {
+  showReview(currentReview + 1);
+});
+
+showReview(0);
+
 "use strict";
 
 const communityURL = "https://t.me/+6G4O9-Gd8942N2Jk";
