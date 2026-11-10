@@ -1,7 +1,7 @@
 "use strict";
 
 /* =========================================
-   WEBSITE CONFIGURATION
+   CONFIGURATION
 ========================================= */
 
 const CONFIG = {
@@ -9,9 +9,9 @@ const CONFIG = {
 
   feedbackURL: "https://forms.gle/a7q2nxTtEFkN9dhW6",
 
-  websiteTitle: "نادي الكتاب بجامعة طرابلس",
+  title: "نادي الكتاب بجامعة طرابلس",
 
-  websiteDescription: "نحو جامعة تقرأ، تفكّر، تتحاور"
+  description: "نحو جامعة تقرأ، تفكّر، تتحاور"
 };
 
 
@@ -20,17 +20,18 @@ const CONFIG = {
 ========================================= */
 
 /*
-  هنا يمكنك إضافة آراء المشاركين الحقيقية.
+  Add real participant reviews here.
 
-  مثال:
+  Example structure:
 
   {
     name: "اسم المشارك",
     role: "مشارك في النادي",
-    quote: "نص الرأي الذي وافق المشارك على نشره"
+    quote: "رأي المشارك بعد موافقته على النشر"
   }
 
-  لن تُعرض أي شهادات افتراضية على الموقع.
+  Leave the array empty until you have
+  permission to publish real testimonials.
 */
 
 const reviews = [];
@@ -40,65 +41,71 @@ const reviews = [];
    REVIEWS CAROUSEL
 ========================================= */
 
-const reviewQuote = document.getElementById("reviewQuote");
-
+const reviewText = document.getElementById("reviewText");
 const reviewName = document.getElementById("reviewName");
-
 const reviewRole = document.getElementById("reviewRole");
-
-const reviewDots = document.getElementById("reviewDots");
 
 const reviewAuthor = document.getElementById("reviewAuthor");
 
-const reviewsControls = document.getElementById("reviewsControls");
+const reviewsControls =
+  document.getElementById("reviewsControls");
 
-const reviewPrev = document.getElementById("reviewPrev");
+const reviewDots = document.getElementById("reviewDots");
 
-const reviewNext = document.getElementById("reviewNext");
+const prevReview = document.getElementById("prevReview");
+const nextReview = document.getElementById("nextReview");
+
+const reviewsCard = document.querySelector(".reviews-card");
 
 let currentReview = 0;
 
 
-function showReview(index) {
+/* Display a review */
+
+function displayReview(index) {
 
   if (reviews.length === 0) {
 
-    reviewQuote.textContent =
-      "نترقّب مشاركاتكم وآراءكم عن تجربتكم مع نادي الكتاب. شاركونا تجاربكم لتكون جزءًا من هذا القسم.";
+    reviewText.textContent =
+      "نترقّب مشاركاتكم وآراءكم حول تجربتكم مع نادي الكتاب. شاركونا تجاربكم لتكون جزءًا من هذا القسم.";
 
     reviewAuthor.hidden = true;
-
     reviewsControls.hidden = true;
 
     return;
   }
 
-  currentReview = (index + reviews.length) % reviews.length;
+  currentReview =
+    (index + reviews.length) % reviews.length;
 
   const review = reviews[currentReview];
 
-  reviewQuote.textContent = `«${review.quote}»`;
+  reviewText.textContent = `«${review.quote}»`;
 
   reviewName.textContent = review.name;
-
   reviewRole.textContent = review.role;
 
   reviewAuthor.hidden = false;
 
   reviewsControls.hidden = reviews.length <= 1;
 
-  Array.from(reviewDots.children).forEach((dot, dotIndex) => {
+  Array.from(reviewDots.children).forEach((dot, i) => {
 
-    const isActive = dotIndex === currentReview;
+    const active = i === currentReview;
 
-    dot.classList.toggle("active", isActive);
+    dot.classList.toggle("active", active);
 
-    dot.setAttribute("aria-current", String(isActive));
+    dot.setAttribute(
+      "aria-current",
+      String(active)
+    );
 
   });
 
 }
 
+
+/* Create carousel dots */
 
 reviews.forEach((review, index) => {
 
@@ -114,7 +121,7 @@ reviews.forEach((review, index) => {
   );
 
   dot.addEventListener("click", () => {
-    showReview(index);
+    displayReview(index);
   });
 
   reviewDots.appendChild(dot);
@@ -122,15 +129,211 @@ reviews.forEach((review, index) => {
 });
 
 
-reviewPrev.addEventListener("click", () => {
-  showReview(currentReview - 1);
+/* Previous and next */
+
+prevReview.addEventListener("click", () => {
+  displayReview(currentReview - 1);
 });
 
-reviewNext.addEventListener("click", () => {
-  showReview(currentReview + 1);
+nextReview.addEventListener("click", () => {
+  displayReview(currentReview + 1);
 });
 
-showReview(0);
+
+/* Keyboard support */
+
+reviewsCard.addEventListener("keydown", event => {
+
+  if (reviews.length <= 1) return;
+
+  if (event.key === "ArrowLeft") {
+
+    displayReview(currentReview + 1);
+
+  } else if (event.key === "ArrowRight") {
+
+    displayReview(currentReview - 1);
+
+  }
+
+});
+
+
+/* Swipe support for mobile */
+
+let touchStartX = 0;
+
+reviewsCard.addEventListener(
+  "touchstart",
+  event => {
+
+    touchStartX =
+      event.changedTouches[0].screenX;
+
+  },
+  { passive: true }
+);
+
+reviewsCard.addEventListener(
+  "touchend",
+  event => {
+
+    if (reviews.length <= 1) return;
+
+    const touchEndX =
+      event.changedTouches[0].screenX;
+
+    const difference =
+      touchStartX - touchEndX;
+
+    if (Math.abs(difference) < 50) return;
+
+    if (difference > 0) {
+
+      displayReview(currentReview + 1);
+
+    } else {
+
+      displayReview(currentReview - 1);
+
+    }
+
+  },
+  { passive: true }
+);
+
+
+/* Initialize carousel */
+
+displayReview(0);
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+const themeToggle =
+  document.getElementById("themeToggle");
+
+const themeIcon =
+  document.getElementById("themeIcon");
+
+
+function getSavedTheme() {
+
+  try {
+
+    return localStorage.getItem("bookclub-theme");
+
+  } catch {
+
+    return null;
+
+  }
+
+}
+
+
+function saveTheme(value) {
+
+  try {
+
+    localStorage.setItem(
+      "bookclub-theme",
+      value
+    );
+
+  } catch {
+
+    // Continue without persistent storage.
+
+  }
+
+}
+
+
+function updateTheme() {
+
+  const dark =
+    document.body.classList.contains("dark");
+
+  themeIcon.textContent =
+    dark ? "☀" : "☾";
+
+  themeToggle.setAttribute(
+    "aria-pressed",
+    String(dark)
+  );
+
+  themeToggle.setAttribute(
+    "aria-label",
+    dark
+      ? "تفعيل الوضع الفاتح"
+      : "تفعيل الوضع الليلي"
+  );
+
+  document.querySelector(
+    'meta[name="theme-color"]'
+  ).setAttribute(
+    "content",
+    dark ? "#1b1115" : "#620116"
+  );
+
+}
+
+
+if (getSavedTheme() === "dark") {
+
+  document.body.classList.add("dark");
+
+}
+
+updateTheme();
+
+
+themeToggle.addEventListener("click", () => {
+
+  document.body.classList.toggle("dark");
+
+  const dark =
+    document.body.classList.contains("dark");
+
+  saveTheme(dark ? "dark" : "light");
+
+  updateTheme();
+
+});
+
+
+/* =========================================
+   ACCORDION
+========================================= */
+
+const accordionItems =
+  document.querySelectorAll(
+    ".about-accordion details"
+  );
+
+
+accordionItems.forEach(item => {
+
+  item.addEventListener("toggle", () => {
+
+    if (!item.open) return;
+
+    accordionItems.forEach(other => {
+
+      if (other !== item) {
+
+        other.open = false;
+
+      }
+
+    });
+
+  });
+
+});
 
 
 /* =========================================
@@ -139,7 +342,7 @@ showReview(0);
 
 const toast = document.getElementById("toast");
 
-let toastTimer;
+let toastTimeout;
 
 
 function showToast(message) {
@@ -148,34 +351,38 @@ function showToast(message) {
 
   toast.classList.add("show");
 
-  clearTimeout(toastTimer);
+  clearTimeout(toastTimeout);
 
-  toastTimer = setTimeout(() => {
+  toastTimeout = setTimeout(() => {
+
     toast.classList.remove("show");
-  }, 2800);
+
+  }, 3000);
 
 }
 
 
 /* =========================================
-   CLIPBOARD
+   COPY TO CLIPBOARD
 ========================================= */
 
-async function copyText(value) {
+async function copyText(text) {
 
-  if (navigator.clipboard && window.isSecureContext) {
+  if (
+    navigator.clipboard &&
+    window.isSecureContext
+  ) {
 
-    await navigator.clipboard.writeText(value);
+    await navigator.clipboard.writeText(text);
 
     return;
   }
 
   const input = document.createElement("textarea");
 
-  input.value = value;
+  input.value = text;
 
   input.style.position = "fixed";
-
   input.style.opacity = "0";
 
   document.body.appendChild(input);
@@ -187,7 +394,9 @@ async function copyText(value) {
   input.remove();
 
   if (!success) {
+
     throw new Error("Copy failed");
+
   }
 
 }
@@ -197,151 +406,94 @@ async function copyText(value) {
    COPY COMMUNITY LINK
 ========================================= */
 
-const copyBtn = document.getElementById("copyBtn");
+document
+  .getElementById("copyCommunity")
+  .addEventListener("click", async () => {
 
+    try {
 
-copyBtn.addEventListener("click", async () => {
+      await copyText(CONFIG.communityURL);
 
-  try {
+      showToast("تم نسخ رابط المجتمع بنجاح ✓");
 
-    await copyText(CONFIG.communityURL);
+    } catch {
 
-    showToast("تم نسخ رابط المجتمع بنجاح ✓");
+      showToast("تعذّر نسخ الرابط");
 
-  } catch {
+    }
 
-    showToast("تعذّر نسخ الرابط");
-
-  }
-
-});
+  });
 
 
 /* =========================================
    SHARE WEBSITE
 ========================================= */
 
-const shareBtn = document.getElementById("shareBtn");
+document
+  .getElementById("shareWebsite")
+  .addEventListener("click", async () => {
 
+    const shareData = {
 
-shareBtn.addEventListener("click", async () => {
+      title: CONFIG.title,
 
-  const data = {
-    title: CONFIG.websiteTitle,
-    text: CONFIG.websiteDescription,
-    url: window.location.href
-  };
+      text: CONFIG.description,
 
-  if (navigator.share) {
+      url: window.location.href
 
-    try {
+    };
 
-      await navigator.share(data);
+    if (navigator.share) {
 
-    } catch (error) {
+      try {
 
-      if (error.name !== "AbortError") {
-        showToast("تعذّرت مشاركة الصفحة");
+        await navigator.share(shareData);
+
+      } catch (error) {
+
+        if (error.name !== "AbortError") {
+
+          showToast("تعذّرت مشاركة الصفحة");
+
+        }
+
+      }
+
+    } else {
+
+      try {
+
+        await copyText(window.location.href);
+
+        showToast("تم نسخ رابط الصفحة ✓");
+
+      } catch {
+
+        showToast("تعذّر نسخ رابط الصفحة");
+
       }
 
     }
 
-  } else {
-
-    try {
-
-      await copyText(window.location.href);
-
-      showToast("تم نسخ رابط الصفحة ✓");
-
-    } catch {
-
-      showToast("تعذّر نسخ رابط الصفحة");
-
-    }
-
-  }
-
-});
+  });
 
 
 /* =========================================
-   DARK MODE
+   SCROLL ANIMATIONS
 ========================================= */
 
-const themeBtn = document.getElementById("themeBtn");
+const revealElements =
+  document.querySelectorAll(".reveal");
 
-
-try {
-
-  if (localStorage.getItem("bookclub-theme") === "dark") {
-    document.body.classList.add("dark");
-  }
-
-} catch {
-
-  // Continue with the default light theme.
-
-}
-
-
-function updateThemeButton() {
-
-  const dark = document.body.classList.contains("dark");
-
-  themeBtn.textContent = dark ? "☀" : "◐";
-
-  themeBtn.setAttribute("aria-pressed", String(dark));
-
-  themeBtn.setAttribute(
-    "aria-label",
-    dark ? "تفعيل الوضع الفاتح" : "تفعيل الوضع الداكن"
-  );
-
-}
-
-
-updateThemeButton();
-
-
-themeBtn.addEventListener("click", () => {
-
-  document.body.classList.toggle("dark");
-
-  const dark = document.body.classList.contains("dark");
-
-  try {
-
-    localStorage.setItem(
-      "bookclub-theme",
-      dark ? "dark" : "light"
-    );
-
-  } catch {
-
-    // Theme switching still works for this session.
-
-  }
-
-  updateThemeButton();
-
-});
-
-
-/* =========================================
-   REVEAL ANIMATIONS
-========================================= */
-
-const revealElements = document.querySelectorAll(".reveal");
-
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
+const reducedMotion =
+  window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
 
 if (
   "IntersectionObserver" in window &&
-  !prefersReducedMotion
+  !reducedMotion
 ) {
 
   const observer = new IntersectionObserver(
@@ -354,7 +506,9 @@ if (
 
           entry.target.classList.add("visible");
 
-          currentObserver.unobserve(entry.target);
+          currentObserver.unobserve(
+            entry.target
+          );
 
         }
 
@@ -363,82 +517,35 @@ if (
     },
 
     {
-      threshold: 0.08
+      threshold: 0.08,
+      rootMargin: "0px 0px -20px 0px"
     }
 
   );
 
   revealElements.forEach(element => {
+
     observer.observe(element);
+
   });
 
 } else {
 
   revealElements.forEach(element => {
+
     element.classList.add("visible");
+
   });
 
 }
 
 
 /* =========================================
-   ACCORDION
+   FEEDBACK FORM
 ========================================= */
 
-const accordions = document.querySelectorAll(".accordion details");
-
-
-accordions.forEach(current => {
-
-  current.addEventListener("toggle", () => {
-
-    if (!current.open) {
-      return;
-    }
-
-    accordions.forEach(other => {
-
-      if (other !== current) {
-        other.open = false;
-      }
-
-    });
-
-  });
-
-});
-
-
-/* =========================================
-   KEYBOARD REVIEWS NAVIGATION
-========================================= */
-
-document
-  .querySelector(".reviews-section")
-  .addEventListener("keydown", event => {
-
-    if (reviews.length <= 1) {
-      return;
-    }
-
-    if (event.key === "ArrowLeft") {
-      showReview(currentReview + 1);
-    }
-
-    if (event.key === "ArrowRight") {
-      showReview(currentReview - 1);
-    }
-
-  });
-
-
-/* =========================================
-   FEEDBACK LINK
-========================================= */
-
-const feedbackButton = document.querySelector(".feedback-button");
-
-feedbackButton.href = CONFIG.feedbackURL;
+document.querySelector(".feedback-button").href =
+  CONFIG.feedbackURL;
 
 
 /* =========================================
